@@ -12,5 +12,7 @@ function createSubscribe(name = '') {
   };
 }
 
-rxjs.from([1, 2, 3, 4, 5])
+const set = new Set([1, 2, 3, '4', '5', {id: 6}]);
+
+rxjs.from(set)
   .subscribe(createSubscribe('from'));
