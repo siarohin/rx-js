@@ -13,7 +13,7 @@ function createSubscribe(name = '') {
 }
 
 rxjs.fromEvent(document.querySelector('input'), 'input')
-  .pipe(rxjs.operators.map(e => e.target.value))
+  .pipe(rxjs.operators.pluck('target', 'value'))
   .pipe(rxjs.operators.map(e => e.toUpperCase()))
   .pipe(rxjs.operators.map(e => {
     return {
