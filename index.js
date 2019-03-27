@@ -1,5 +1,6 @@
-const button = document.querySelector('button');
-
-const btn$ = rxjs.fromEvent(button, 'click');
-
-btn$.subscribe((e) => console.log(e));
+rxjs.of(5, 'qwerty', 101, [4, 2, 45])
+  .subscribe(
+      x => console.log(`Next: ${x}`),
+      (error) => console.log(`Error: ${error}`),
+      () => console.log('Completed!')
+    );
