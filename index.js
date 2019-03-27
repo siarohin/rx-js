@@ -13,5 +13,5 @@ function createSubscribe(name = '') {
 }
 
 rxjs.of(1, 5, 'hello', 'world')
-  .pipe(rxjs.operators.first())
+  .pipe(rxjs.operators.last())
   .subscribe(createSubscribe('first'));
