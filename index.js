@@ -1,6 +1,6 @@
 var stream$ = rxjs.Observable.create(function(observer) {
   observer.next(1);
-  observer.next(2);
+  observer.complete();
   setTimeout(() => {
     observer.next(3);
   }, 3000);
@@ -8,5 +8,5 @@ var stream$ = rxjs.Observable.create(function(observer) {
 });
 
 stream$.subscribe(function(data) {
-  console.log(data);
+  console.log(data); // console.log --> 1
 });
