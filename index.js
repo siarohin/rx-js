@@ -12,6 +12,5 @@ function createSubscribe(name = '') {
   };
 }
 
-// from 5 , 15 elements
-rxjs.range(5, 15)
-  .subscribe(createSubscribe('range'));
+rxjs.from([1, 2, 3, 4, 5])
+  .subscribe(createSubscribe('from'));
