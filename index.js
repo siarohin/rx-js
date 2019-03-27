@@ -13,7 +13,6 @@ function createSubscribe(name = '') {
 }
 
 rxjs.range(1, 3)
-  .pipe(rxjs.operators.tap(x => console.log('Before', x)))
   .pipe(rxjs.operators.map(x => x * 2))
-  .pipe(rxjs.operators.tap(x => console.log('After', x)))
-  .subscribe(createSubscribe('tap'));
+  .pipe(rxjs.operators.delay(2000))
+  .subscribe(createSubscribe('delay'));
