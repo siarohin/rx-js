@@ -12,7 +12,6 @@ function createSubscribe(name = '') {
   };
 }
 
-rxjs.interval(1000)
-  .pipe(rxjs.operators.skipUntil(rxjs.timer(3000)))
-  .pipe(rxjs.operators.takeUntil(rxjs.timer(10000)))
-  .subscribe(createSubscribe('skipUntil'));
+rxjs.range(0, 10)
+  .pipe(rxjs.operators.filter(x => x > 3))
+  .subscribe(createSubscribe('filter'));
