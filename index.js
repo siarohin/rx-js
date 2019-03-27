@@ -13,7 +13,7 @@ function createSubscribe(name = '') {
 }
 
 rxjs.of(1, 5, 'hello', 'world')
-  .pipe(rxjs.operators.skip(2))
-  .subscribe(createSubscribe('skip'));
+  .pipe(rxjs.operators.skipWhile(x => typeof(x) === 'number'))
+  .subscribe(createSubscribe('skipWhile'));
 
   // --> hello, world
