@@ -12,6 +12,11 @@ function createSubscribe(name = '') {
   };
 }
 
-rxjs.range(0, 40)
-  .pipe(rxjs.operators.bufferCount(5))
-  .subscribe(createSubscribe('bufferCount'));
+// rxjs.range(0, 40)
+//   .pipe(rxjs.operators.bufferCount(5))
+//   .subscribe(createSubscribe('bufferCount'));
+
+rxjs.interval(1000)
+  .pipe(rxjs.operators.buffer(rxjs.fromEvent(document, 'click')))
+  .pipe(rxjs.operators.map(x => x.length))
+  .subscribe(createSubscribe('buffer'));
