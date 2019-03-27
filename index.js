@@ -12,5 +12,6 @@ function createSubscribe(name = '') {
   };
 }
 
-rxjs.interval(1000)
-  .subscribe(createSubscribe('interval'));
+// timer, interval
+rxjs.timer(4000, 1000)
+  .subscribe(createSubscribe('timer'));
