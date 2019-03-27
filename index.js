@@ -12,7 +12,6 @@ function createSubscribe(name = '') {
   };
 }
 
-rxjs.interval(500)
-  .pipe(rxjs.operators.bufferTime(2000))
-  .pipe(rxjs.operators.take(3))
-  .subscribe(createSubscribe('buffer'));
+rxjs.range(0, 40)
+  .pipe(rxjs.operators.bufferCount(5))
+  .subscribe(createSubscribe('bufferCount'));
