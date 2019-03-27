@@ -12,6 +12,8 @@ function createSubscribe(name = '') {
   };
 }
 
-rxjs.from([1, 2, 3, 4, 5])
-  .pipe(rxjs.operators.every(x => x % 2 === 0))
-  .subscribe(createSubscribe('of'));
+rxjs.range(1, 3)
+  .pipe(rxjs.operators.tap(x => console.log('Before', x)))
+  .pipe(rxjs.operators.map(x => x * 2))
+  .pipe(rxjs.operators.tap(x => console.log('After', x)))
+  .subscribe(createSubscribe('tap'));
