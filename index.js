@@ -12,7 +12,6 @@ function createSubscribe(name = '') {
   };
 }
 
-const map = new Map([[1, 2], [3, 4], [5, 6]]);
-
-rxjs.from(map)
-  .subscribe(createSubscribe('from'));
+rxjs.of('aleksandr', 'people', 'done')
+  .pipe(rxjs.operators.map(x => x.toUpperCase()))
+  .subscribe(createSubscribe('map'));
