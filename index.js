@@ -13,5 +13,5 @@ function createSubscribe(name = '') {
 }
 
 rxjs.of(1, 5, 'hello', 'world')
-  .pipe(rxjs.operators.findIndex(x => x === 5))
-  .subscribe(createSubscribe('findIndex'));
+  .pipe(rxjs.operators.take(2))
+  .subscribe(createSubscribe('take'));
