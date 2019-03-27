@@ -12,6 +12,6 @@ function createSubscribe(name = '') {
   };
 }
 
-rxjs.of()
-  .pipe(rxjs.operators.defaultIfEmpty('empty stream'))
+rxjs.from([1, 2, 3, 4, 5])
+  .pipe(rxjs.operators.every(x => x % 2 === 0))
   .subscribe(createSubscribe('of'));
