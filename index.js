@@ -29,5 +29,6 @@ const cars = [
 
 rxjs.fromEvent(document.querySelector('input'), 'input')
   .pipe(rxjs.operators.map(e => e.target.value))
+  .pipe(rxjs.operators.distinct())
   .pipe(rxjs.operators.debounceTime(1500))
   .subscribe(createSubscribe('debounceTime'));
