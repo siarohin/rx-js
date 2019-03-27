@@ -12,8 +12,7 @@ function createSubscribe(name = '') {
   };
 }
 
-rxjs.of(1, 5, 'hello', 'world')
-  .pipe(rxjs.operators.skipWhile(x => typeof(x) === 'number'))
+rxjs.interval(1000)
+  .pipe(rxjs.operators.skipWhile(x => x < 10))
+  .pipe(rxjs.operators.take(5))
   .subscribe(createSubscribe('skipWhile'));
-
-  // --> hello, world
