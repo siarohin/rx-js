@@ -12,6 +12,6 @@ function createSubscribe(name = '') {
   };
 }
 
-// timer, interval
-rxjs.timer(4000, 1000)
-  .subscribe(createSubscribe('timer'));
+// from 5 , 15 elements
+rxjs.range(5, 15)
+  .subscribe(createSubscribe('range'));
