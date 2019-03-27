@@ -13,6 +13,6 @@ function createSubscribe(name = '') {
 }
 
 rxjs.interval(500)
-  .pipe(rxjs.operators.buffer(rxjs.interval(2000)))
+  .pipe(rxjs.operators.bufferTime(2000))
   .pipe(rxjs.operators.take(3))
   .subscribe(createSubscribe('buffer'));
