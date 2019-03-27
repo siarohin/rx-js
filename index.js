@@ -12,6 +12,13 @@ function createSubscribe(name = '') {
   };
 }
 
-rxjs.of('aleksandr', 'people', 'done')
-  .pipe(rxjs.operators.map(x => x.toUpperCase()))
+rxjs.fromEvent(document.querySelector('input'), 'input')
+  .pipe(rxjs.operators.map(e => e.target.value))
+  .pipe(rxjs.operators.map(e => e.toUpperCase()))
+  .pipe(rxjs.operators.map(e => {
+    return {
+      e,
+      length: e.length,
+    }
+  }))
   .subscribe(createSubscribe('map'));
