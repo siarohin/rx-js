@@ -13,5 +13,7 @@ function createSubscribe(name = '') {
 }
 
 rxjs.of(1, 5, 'hello', 'world')
-  .pipe(rxjs.operators.take(2))
-  .subscribe(createSubscribe('take'));
+  .pipe(rxjs.operators.skip(2))
+  .subscribe(createSubscribe('skip'));
+
+  // --> hello, world
