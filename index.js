@@ -12,7 +12,7 @@ function createSubscribe(name = '') {
   };
 }
 
-
-rxjs.from([1, 1, 1, 2, 2, 5, 6, 1, 9, 9, 7, 7, 7])
-  .pipe(rxjs.operators.distinctUntilChanged())
-  .subscribe(createSubscribe('from'));
+rxjs.interval(500)
+  .pipe(rxjs.operators.buffer(rxjs.interval(2000)))
+  .pipe(rxjs.operators.take(3))
+  .subscribe(createSubscribe('buffer'));
