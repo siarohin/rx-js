@@ -12,23 +12,7 @@ function createSubscribe(name = '') {
   };
 }
 
-const cars = [
-  {
-    name: 'Audi',
-    price: 500,
-  },
-  {
-    name: 'BMW',
-    price: 400,
-  },
-  {
-    name: 'Ford',
-    price: 200,
-  },
-];
 
-rxjs.fromEvent(document.querySelector('input'), 'input')
-  .pipe(rxjs.operators.map(e => e.target.value))
-  .pipe(rxjs.operators.distinct())
-  .pipe(rxjs.operators.debounceTime(1500))
-  .subscribe(createSubscribe('debounceTime'));
+rxjs.from([1, 1, 1, 2, 2, 5, 6, 1, 9, 9, 7, 7, 7])
+  .pipe(rxjs.operators.distinctUntilChanged())
+  .subscribe(createSubscribe('from'));
