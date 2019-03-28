@@ -15,5 +15,5 @@ function createSubscribe(name = '') {
 
 const interval$ = rxjs.interval(1000);
 
-rxjs.zip(interval$)
+rxjs.zip(interval$, interval$.pipe(rxjs.operators.take(3)))
     .subscribe(createSubscribe('zip'));
