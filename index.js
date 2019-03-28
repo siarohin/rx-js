@@ -13,11 +13,12 @@ function createSubscribe(name = '') {
 }
 
 
-const subject$ = new rxjs.ReplaySubject(2);
+const subject$ = new rxjs.AsyncSubject();
 
-subject$.next(3);
-subject$.next(5);
-subject$.next(10);
+subject$.next(1);
+subject$.next('WFM');
 subject$.complete();
 
-subject$.subscribe(createSubscribe('replaySubject'));
+subject$.subscribe(createSubscribe('asyncSubject'));
+
+// --> WFM
