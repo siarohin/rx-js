@@ -13,7 +13,11 @@ function createSubscribe(name = '') {
 }
 
 
-const interval$ = rxjs.interval(1000);
+const timer1$ = rxjs.timer(1000, 2000);
+const timer2$ = rxjs.timer(2000, 2000);
+const timer3$ = rxjs.timer(3000, 2000);
 
-rxjs.zip(interval$, interval$.pipe(rxjs.operators.take(3)), rxjs.of('WFM'))
-    .subscribe(createSubscribe('zip'));
+
+rxjs.combineLatest(timer1$, timer2$, timer3$)
+    .pipe(rxjs.operators.take(10))
+    .subscribe(createSubscribe('combineLatest'));
