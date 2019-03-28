@@ -15,5 +15,5 @@ function createSubscribe(name = '') {
 const s1$ = rxjs.of('Hello');
 const s2$ = rxjs.of('World');
 
-rxjs.zip(s1$, s2$)
+rxjs.zip(s1$, s2$.pipe(rxjs.operators.delay(5000)))
     .subscribe(createSubscribe('zip'));
