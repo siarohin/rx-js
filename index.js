@@ -12,7 +12,14 @@ function createSubscribe(name = '') {
   };
 }
 
+const promise = (data) => {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      res(`${data} wish you good luck!`);
+    }, 2000);
+  });
+};
 
-rxjs.of('Hello')
-    .pipe(rxjs.operators.mergeMap(x => rxjs.of(`${x} World`)))
-    .subscribe(createSubscribe('mergeMap'))
+rxjs.of('WFM')
+    .pipe(rxjs.operators.mergeMap(x => promise(x)))
+    .subscribe(createSubscribe('promise'))
