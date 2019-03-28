@@ -13,12 +13,7 @@ function createSubscribe(name = '') {
 }
 
 
-const s1$ = rxjs.interval(1000)
-                .pipe(rxjs.operators.map(x => `Stream 1: ${x}`))
-                .pipe(rxjs.operators.take(5));
-const s2$ = rxjs.interval(500)
-                .pipe(rxjs.operators.map(x => `Stream 2: ${x}`))
-                .pipe(rxjs.operators.take(5));
-
-rxjs.merge(s1$, s2$)
+rxjs.range(1, 3)
+    .pipe(rxjs.operators.map(x => rxjs.range(1, 3)))
+    .pipe(rxjs.operators.mergeAll())
     .subscribe(createSubscribe('merge'));
