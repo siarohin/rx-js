@@ -11,14 +11,3 @@ function createSubscribe(name = '') {
     }
   };
 }
-
-
-const subject$ = new rxjs.AsyncSubject();
-
-subject$.next(1);
-subject$.next('WFM');
-subject$.complete();
-
-subject$.subscribe(createSubscribe('asyncSubject'));
-
-// --> WFM

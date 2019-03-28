@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/siarohin/rx-js#readme",
   "dependencies": {
+    "jquery": "^3.3.1",
     "rxjs": "^6.4.0"
   }
 }
