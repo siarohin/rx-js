@@ -15,12 +15,8 @@ function createSubscribe(name = '') {
 
 const subject$ = new rxjs.Subject();
 
-subject$.subscribe(createSubscribe('subject'));
+const int$ = new rxjs.interval(1000);
 
-subject$.next(1);
-subject$.next(5);
+int$.subscribe(subject$);
 
-setTimeout(() => {
-  subject$.complete();
-}, 3000);
-
+subject$.subscribe(createSubscribe('subject 1'));
