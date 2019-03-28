@@ -13,13 +13,12 @@ function createSubscribe(name = '') {
 }
 
 
-const s1$ = rxjs.of('Hello');
-const s2$ = rxjs.of('World');
+const s1$ = rxjs.interval(1000)
+                .pipe(rxjs.operators.map(x => `Stream 1: ${x}`))
+                .pipe(rxjs.operators.take(5));
+const s2$ = rxjs.interval(500)
+                .pipe(rxjs.operators.map(x => `Stream 2: ${x}`))
+                .pipe(rxjs.operators.take(5));
 
 rxjs.merge(s1$, s2$)
-  .subscribe(createSubscribe('merge'));
-
-// rxjs.range(1, 3)
-//   .pipe(rxjs.operators.map(x => x * 2))
-//   .pipe(rxjs.operators.delay(2000))
-//   .subscribe(createSubscribe('delay'));
+    .subscribe(createSubscribe('merge'));
