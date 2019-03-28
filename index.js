@@ -15,5 +15,5 @@ function createSubscribe(name = '') {
 
 const interval$ = rxjs.interval(1000);
 
-rxjs.zip(interval$, interval$.pipe(rxjs.operators.take(3)))
+rxjs.zip(interval$, interval$.pipe(rxjs.operators.take(3)), rxjs.of('WFM'))
     .subscribe(createSubscribe('zip'));
