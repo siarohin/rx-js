@@ -13,10 +13,8 @@ function createSubscribe(name = '') {
 }
 
 
-const subject$ = new rxjs.Subject();
+const subject$ = new rxjs.BehaviorSubject('WFM');
 
-const int$ = new rxjs.interval(1000);
+subject$.subscribe(createSubscribe('behaviorSubject'));
 
-int$.subscribe(subject$);
-
-subject$.subscribe(createSubscribe('subject 1'));
+subject$.next('Hello');
