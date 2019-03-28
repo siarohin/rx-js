@@ -12,7 +12,14 @@ function createSubscribe(name = '') {
   };
 }
 
-rxjs.range(1, 3)
-  .pipe(rxjs.operators.map(x => x * 2))
-  .pipe(rxjs.operators.delay(2000))
-  .subscribe(createSubscribe('delay'));
+
+const s1$ = rxjs.of('Hello');
+const s2$ = rxjs.of('World');
+
+rxjs.merge(s1$, s2$)
+  .subscribe(createSubscribe('merge'));
+
+// rxjs.range(1, 3)
+//   .pipe(rxjs.operators.map(x => x * 2))
+//   .pipe(rxjs.operators.delay(2000))
+//   .subscribe(createSubscribe('delay'));
