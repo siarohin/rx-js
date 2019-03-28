@@ -1,0 +1,41 @@
+.main {
+  font: 16px 'Roboto', sans-serif;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  align-items: center;
+  margin: 3.5em 0;
+}
+
+.main__input {
+  margin: 1em 0;
+}
+
+.main__input > input {
+  width: 285px;
+  height: 2.5em;
+  padding: 0 .5em;
+}
+
+.info-title {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.main__info > figure {
+  margin: 0;
+  padding: 0;
+  width: 185px;
+  height: 185px;
+}
+
+.info-photo {
+  border-radius: 50%;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.info-id {
+  font-size: .5em;
+}
