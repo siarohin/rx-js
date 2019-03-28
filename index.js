@@ -14,7 +14,5 @@ function createSubscribe(name = '') {
 
 
 rxjs.of('Hello')
-    // .pipe(rxjs.operators.map(x => rxjs.range(x, 3)))
-    .subscribe(x => rxjs.of(`${x} World`)
-                        .subscribe(createSubscribe('mergeMap'))
-    );
+    .pipe(rxjs.operators.mergeMap(x => rxjs.of(`${x} World`)))
+    .subscribe(createSubscribe('mergeMap'))
